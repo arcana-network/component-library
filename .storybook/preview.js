@@ -6,4 +6,13 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  backgrounds: {
+    default: 'Arcana Dark',
+    values: [
+      {
+        name: 'Arcana Dark',
+        value: '#333333',
+      }
+    ]
+  }
 }

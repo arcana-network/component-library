@@ -1,47 +1,40 @@
-import MyButton from "./Button.vue";
+import "../components/styles.css";
+import MyButton from "../components/Button/Button.vue";
 
 export default {
-  title: "Example/Button",
+  title: "Components",
   component: MyButton,
   argTypes: {
-    backgroundColor: { control: "color" },
-    size: {
-      control: { type: "select", options: ["small", "medium", "large"] },
+    label: "Button",
+    variant: {
+      control: { type: "select" },
+      options: ["primary", "secondary", "link"],
     },
-    onClick: {},
   },
 };
 
 const Template = (args) => ({
-  // Components used in your story `template` are defined in the `components` object
   components: { MyButton },
-  // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args };
   },
-  // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<my-button v-bind="args" />',
+  template: '<MyButton v-bind="args" />',
 });
 
-export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
+export const PrimaryButton = Template.bind({});
+PrimaryButton.args = {
   label: "Button",
+  variant: "primary",
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
+export const SecondaryButton = Template.bind({});
+SecondaryButton.args = {
   label: "Button",
+  variant: "secondary"
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: "large",
+export const LinkButton = Template.bind({});
+LinkButton.args = {
   label: "Button",
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: "small",
-  label: "Button",
+  variant: "link"
 };
