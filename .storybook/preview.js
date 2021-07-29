@@ -12,6 +12,10 @@ export const parameters = {
       {
         name: 'Arcana Dark',
         value: '#181818',
+      },
+      {
+        name: 'Arcana Light',
+        value: '#FFFFFF',
       }
     ]
   }
