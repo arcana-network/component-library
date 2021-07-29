@@ -2,7 +2,7 @@ import "../components/styles.css";
 import MyButton from "../components/Button/Button.vue";
 
 export default {
-  title: "Components",
+  title: "Components/Button",
   component: MyButton,
   argTypes: {
     label: "Button",
@@ -21,20 +21,20 @@ const Template = (args) => ({
   template: '<MyButton v-bind="args" />',
 });
 
-export const PrimaryButton = Template.bind({});
-PrimaryButton.args = {
+export const Primary = Template.bind({});
+Primary.args = {
   label: "Button",
   variant: "primary",
 };
 
-export const SecondaryButton = Template.bind({});
-SecondaryButton.args = {
+export const Secondary = Template.bind({});
+Secondary.args = {
   label: "Button",
   variant: "secondary"
 };
 
-export const LinkButton = Template.bind({});
-LinkButton.args = {
+export const Link = Template.bind({});
+Link.args = {
   label: "Button",
   variant: "link"
 };

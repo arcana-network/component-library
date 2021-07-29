@@ -1,20 +1,27 @@
 :root {
-  --primary: #13A3FD;
-  --primary-light: #FFFFFF;
+  --primary: #13a3fd;
+  --primary-light: #ffffff;
   --primary-dark: #141414;
-  --text-white: #FFFFFF;
-  --text-grey: #8D8D8D;
-  --colors-green: #8FFF00;
-  --colors-yellow: #FFC226;
-  --colors-orange: #FF6826;
+  --text-white: #ffffff;
+  --text-grey: #8d8d8d;
+  --colors-green: #8fff00;
+  --colors-yellow: #ffc226;
+  --colors-orange: #ff6826;
   --font-title: "Montserrat", sans-serif;
   --font-body: "Sora", sans-serif;
-  --dark-theme-bg: #333333;
+  --dark-theme-bg: #181818;
 }
 body {
   background-color: var(--dark-theme-bg);
 }
-h1, h2, h3, h4, h5,  .sub-heading-4, .sub-heading-5, .body-2{
+h1,
+h2,
+h3,
+h4,
+h5,
+.sub-heading-4,
+.sub-heading-5,
+.body-2 {
   font-family: var(--font-title);
   color: var(--text-white);
 }
@@ -40,7 +47,11 @@ h5 {
   font-weight: 400;
   font-size: 1.125em;
 }
-.sub-heading-1, .sub-heading-2, .sub-heading-3, .body-1, .body-3 {
+.sub-heading-1,
+.sub-heading-2,
+.sub-heading-3,
+.body-1,
+.body-3 {
   font-family: var(--font-body);
   color: var(--text-white);
 }
@@ -62,7 +73,8 @@ h5 {
   font-size: 1em;
   line-height: 1.125em;
 }
-.sub-heading-5, .body-1 {
+.sub-heading-5,
+.body-1 {
   font-weight: 400;
   font-size: 1.125em;
   line-height: 1.375em;
@@ -82,4 +94,16 @@ h5 {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+.flex {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
 }

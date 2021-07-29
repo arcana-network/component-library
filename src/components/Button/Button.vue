@@ -1,16 +1,28 @@
 <template>
   <button
+    v-if="variant !== 'link'"
     :style="[buttonStyle]"
     :class="classes"
     @click.stop="handleClick"
     :disabled="disabled"
+    :aria-label="label"
   >
     {{ label }}
   </button>
+  <a 
+    v-else 
+    :style="[buttonStyle]"
+    :class="classes"
+    @click.stop="handleClick"
+    :disabled="disabled"
+    :aria-label="label"
+    >
+    {{label}}
+  </a>
 </template>
 
 <style lang="css" scoped>
-button {
+button, a {
   cursor: pointer;
   font-family: var(--font-body);
   font-size: 1.125em;
@@ -58,10 +70,11 @@ button.secondary::before {
 button.secondary:hover:not(:disabled) {
   color: #28C6FA;
 }
-button.link {
+a.link {
   padding: 0;
   color: var(--primary);
   min-width: 0;
+  text-decoration: none;
 }
 </style>
 
@@ -74,7 +87,7 @@ export default {
     action: Function,
     buttonStyle: [Object, String],
     disabled: Boolean,
-    variant: String,
+    variant: String
   },
   setup(props, { emit }) {
     props = reactive(props);
