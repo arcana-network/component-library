@@ -13,37 +13,31 @@
     <div><span class="body-1">Body 1</span></div>
     <div><span class="body-2">Body 2</span></div>
     <div><span class="body-3">Body 3</span></div>
+    <text-field v-model="textValue" @keyup="onKeyup" message="Some random" id="sample" label="test"/>
+    <div class="body-2">{{textValue}}</div>
   </div>
 </template>
 
 <script>
-import { onMounted, ref } from "@vue/runtime-core";
+import { onMounted, onUpdated, ref } from "@vue/runtime-core";
+import TextField from "./components/TextField/TextField.vue";
 export default {
   name: "App",
-  components: {  },
+  components: { TextField },
   setup() {
-    const smallButton = ref("");
-    const buttonColor = ref("");
+    const textValue = ref("");
 
-    function alertClick(type) {
-      console.log("Alert click", type);
+    onMounted(()=> {});
+
+    onUpdated(() => {console.log(textValue)});
+
+    function onKeyup() {
+      console.log("Keyup",textValue);
     }
 
-    onMounted(() => {
-      smallButton.value = "small";
-      buttonColor.value = "secondary";
-      console.log(smallButton);
-      setTimeout(() => {
-        smallButton.value = "medium";
-        buttonColor.value = "primary";
-        console.log(smallButton);
-      }, 2000);
-    });
-
     return {
-      smallButton,
-      buttonColor,
-      alertClick,
+      textValue,
+      onKeyup
     };
   },
 };

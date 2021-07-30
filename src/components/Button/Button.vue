@@ -9,20 +9,21 @@
   >
     {{ label }}
   </button>
-  <a 
-    v-else 
+  <a
+    v-else
     :style="[buttonStyle]"
     :class="classes"
     @click.stop="handleClick"
     :disabled="disabled"
     :aria-label="label"
-    >
-    {{label}}
+  >
+    {{ label }}
   </a>
 </template>
 
 <style lang="css" scoped>
-button, a {
+button,
+a {
   cursor: pointer;
   font-family: var(--font-body);
   font-size: 1.125em;
@@ -36,15 +37,15 @@ button, a {
   background: none;
 }
 button.primary {
-  background: linear-gradient(to bottom, #0085FF, #29C8FA);
+  background: linear-gradient(to bottom, #0085ff, #29c8fa);
   color: var(--text-white);
 }
 button.primary:hover:not(:disabled) {
-  background: linear-gradient(to bottom, #00519C, #0088B2);
+  background: linear-gradient(to bottom, #00519c, #0088b2);
   box-shadow: inset 0px 25px 47px rgba(0, 52, 101, 0.71);
 }
 button.primary:disabled {
-  background: linear-gradient(to bottom, #4E4E4E, #2B2B2B);
+  background: linear-gradient(to bottom, #4e4e4e, #2b2b2b);
   color: var(--text-grey);
   cursor: not-allowed;
 }
@@ -60,15 +61,17 @@ button.secondary {
 }
 button.secondary::before {
   position: absolute;
-  top: -3px; bottom: -3px;
-  left: -3px; right: -3px;
-  background: linear-gradient(to bottom, #0085FF, #29C8FA);
-  content: '';
+  top: -3px;
+  bottom: -3px;
+  left: -3px;
+  right: -3px;
+  background: linear-gradient(to bottom, #0085ff, #29c8fa);
+  content: "";
   z-index: -1;
   border-radius: 10px;
 }
 button.secondary:hover:not(:disabled) {
-  color: #28C6FA;
+  color: #28c6fa;
 }
 a.link {
   padding: 0;
@@ -87,18 +90,18 @@ export default {
     action: Function,
     buttonStyle: [Object, String],
     disabled: Boolean,
-    variant: String
+    variant: String,
   },
   setup(props, { emit }) {
     props = reactive(props);
 
     const classes = computed(() => {
-      const classNames = {primary: true};
+      const classNames = { primary: true };
       if (props.variant?.trim()) {
         const variant = props.variant.toLowerCase();
         const __builtInVariants = ["primary", "secondary", "link"];
-        __builtInVariants.forEach(builtInVariant => {
-          if(variant === builtInVariant) {
+        __builtInVariants.forEach((builtInVariant) => {
+          if (variant === builtInVariant) {
             classNames[variant] = true;
           } else {
             classNames[builtInVariant] = false;

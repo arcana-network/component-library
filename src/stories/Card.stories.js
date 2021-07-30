@@ -22,18 +22,18 @@ const Template = (args) => ({
 
 export const Elevated = Template.bind({});
 Elevated.args = {
-    variant: "elevated",
-    cardStyle: {
-        height: "150px",
-        width: "30%"
-    }
+  variant: "elevated",
+  cardStyle: {
+    height: "150px",
+    width: "30%",
+  },
 };
 
 export const Depressed = Template.bind({});
 Depressed.args = {
-    variant: "depressed",
-    cardStyle: {
-        height: "150px",
-        width: "30%"
-    }
+  variant: "depressed",
+  cardStyle: {
+    height: "150px",
+    width: "30%",
+  },
 };
