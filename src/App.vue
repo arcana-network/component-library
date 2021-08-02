@@ -13,31 +13,37 @@
     <div><span class="body-1">Body 1</span></div>
     <div><span class="body-2">Body 2</span></div>
     <div><span class="body-3">Body 3</span></div>
-    <text-field v-model="textValue" @keyup="onKeyup" message="Some random" id="sample" label="test"/>
-    <div class="body-2">{{textValue}}</div>
+    <text-field
+      v-model="textValue"
+      @keyup="onKeyup"
+      message="Some random"
+      id="sample"
+      label="test"
+    />
+    <div class="body-2">{{ textValue }}</div>
+    <Switch v-model="switchState" />
   </div>
 </template>
 
 <script>
-import { onMounted, onUpdated, ref } from "@vue/runtime-core";
+import { ref } from "@vue/runtime-core";
 import TextField from "./components/TextField/TextField.vue";
+import Switch from "./components/Switch/Switch.vue";
 export default {
   name: "App",
-  components: { TextField },
+  components: { TextField, Switch },
   setup() {
     const textValue = ref("");
-
-    onMounted(()=> {});
-
-    onUpdated(() => {console.log(textValue)});
+    const switchState = ref(false);
 
     function onKeyup() {
-      console.log("Keyup",textValue);
+      console.log("Keyup", textValue);
     }
 
     return {
       textValue,
-      onKeyup
+      onKeyup,
+      switchState,
     };
   },
 };
