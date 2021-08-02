@@ -11,6 +11,7 @@
         @input="onInput"
         v-bind="attrs"
         :placeholder="placeholder"
+        :class="strong ? 'strong' : ''"
       />
     </div>
     <span v-if="message" class="message" :class="messageType">
@@ -38,7 +39,6 @@ div.text-field {
     inset 5px 5px 10px rgba(11, 11, 11, 0.5);
   border-radius: 10px;
   display: inline-block;
-  padding: 10px 20px;
 }
 .message {
   font-family: var(--font-body);
@@ -67,13 +67,37 @@ input[type="password"] {
   font-family: var(--font-body);
   font-size: 1.1em;
   line-height: 1.5em;
+  margin: 10px 20px;
+  padding: 0;
 }
 input[type="text"]::placeholder,
-input[type="password"]::placeholder {
+input[type="password"]::placeholder,
+input[type="text"]::-webkit-input-placeholder,
+input[type="password"]::-webkit-input-placeholder,
+input[type="text"]::-moz-placeholder,
+input[type="password"]::-moz-placeholder,
+input[type="text"]:-ms-input-placeholder,
+input[type="password"]:-ms-input-placeholder,
+input[type="text"]:-moz-placeholder,
+input[type="password"]:-moz-placeholder {
   color: var(--text-grey);
   font-family: var(--font-body);
-  font-size: 1.1m;
+  font-size: 1.1em;
   line-height: 1.5em;
+  margin: 10px 20px;
+}
+input[type="text"].strong,
+input[type="password"].strong {
+  font-size: 1.4em;
+  line-height: 1.65em;
+  font-weight: 600;
+  margin: 5px 20px;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #181818 inset;
+  -webkit-text-fill-color: var(--text-white);
 }
 </style>
 
@@ -94,6 +118,7 @@ export default {
     type: String,
     messageType: String,
     placeholder: String,
+    strong: Boolean,
   },
   setup(props, { emit, attrs }) {
     props = reactive(props);
