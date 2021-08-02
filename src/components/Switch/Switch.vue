@@ -79,7 +79,7 @@
 }
 
 .toggle-indicator.checked.large {
-  transform: translateX(2.2em);
+  transform: translateX(2.2em) rotate(540deg);
 }
 </style>
 

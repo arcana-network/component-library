@@ -21,7 +21,7 @@
       label="test"
     />
     <div class="body-2">{{ textValue }}</div>
-    <Switch v-model="switchState" />
+    <Switch v-model="switchState" variant="large" />
   </div>
 </template>
 
