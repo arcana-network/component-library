@@ -10,6 +10,10 @@
   --font-title: "Montserrat", sans-serif;
   --font-body: "Sora", sans-serif;
   --dark-theme-bg: #181818;
+  --breakpoint-mobile: 767px;
+  --breakpoint-tablet: 1023px;
+  --desktop-and-above: 1024px;
+  --max-container-width: 82em;
 }
 body {
   background-color: var(--dark-theme-bg);
