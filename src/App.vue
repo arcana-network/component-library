@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container column">
     <h1>H1 HEADING</h1>
     <h2>H2 HEADING</h2>
     <h3>H3 HEADING</h3>
@@ -17,6 +17,9 @@
       :options="['Tesla', 'Mercedes', 'BMW']"
       placeholder="Select Car"
     />
+    <Tooltip title="Testing tooltip">
+      <span class="sub-heading-2">Sample Data</span>
+    </Tooltip>
     <text-field
       v-model="textValue"
       @keyup="onKeyup"
@@ -24,8 +27,11 @@
       id="sample"
       label="test"
     />
-    <div class="body-2">{{ textValue }}</div>
-    <Switch v-model="switchState" variant="large" />
+    <div class="body-2" style="margin-bottom: 10px">{{ textValue }}</div>
+    <div class="flex row" style="gap: 20px; margin-bottom: 10px">
+      <Switch v-model="switchState" variant="large" />
+      <Switch v-model="switchState" />
+    </div>
     <Progress :percentage="30" state="error" />
   </div>
 </template>
@@ -36,9 +42,10 @@ import TextField from "./components/TextField/TextField.vue";
 import Switch from "./components/Switch/Switch.vue";
 import Progress from "./components/Progress/Progress.vue";
 import Dropdown from "./components/Dropdown/Dropdown.vue";
+import Tooltip from "./components/Tooltip/Tooltip.vue";
 export default {
   name: "App",
-  components: { TextField, Switch, Progress, Dropdown },
+  components: { TextField, Switch, Progress, Dropdown, Tooltip },
   setup() {
     const textValue = ref("");
     const switchState = ref(false);

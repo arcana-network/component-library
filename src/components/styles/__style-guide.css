@@ -12,8 +12,9 @@
   --dark-theme-bg: #181818;
   --breakpoint-mobile: 767px;
   --breakpoint-tablet: 1023px;
-  --desktop-and-above: 1024px;
+  --breakpoint-laptop-and-above: 1024px;
   --max-container-width: 82em;
+  --container-width: 90%;
 }
 body {
   background-color: var(--dark-theme-bg);
@@ -91,23 +92,28 @@ h5 {
   font-size: 0.625em;
   line-height: 1.125em;
 }
-.container {
-  max-width: 1440px;
-  width: 90%;
-}
 .mx-auto {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 .flex {
   display: flex;
 }
-.flex-row {
+.container {
+  display: flex;
+  /* max-width: var(--max-container-width); */
+  width: var(--container-width);
+  margin: 0 auto;
+  align-items: flex-start;
+}
+.flex-row,
+.row {
   flex-direction: row;
 }
-.flex-column {
+.flex-column,
+.column {
   flex-direction: column;
 }
-.flex-wrap {
+.flex-wrap,
+.wrap {
   flex-wrap: wrap;
 }

@@ -1,62 +1,60 @@
 <template>
   <div
-    class="custom-select-wrapper"
-    aria-haspopup="listbox"
-    aria-expanded="false"
+    class="custom-select"
+    :class="{ open: isOpen }"
     @click.stop="toggle"
+    aria-haspopup="listbox"
+    :aria-expanded="isOpen"
   >
-    <div class="custom-select" :class="{ open: isOpen }">
-      <div class="custom-select__trigger">
-        <span v-if="value">{{ value }}</span>
-        <span v-else class="placeholder">{{ placeholder }}</span>
-        <div class="arrow"></div>
-      </div>
-      <div class="custom-options" role="listbox" tabindex="-1">
-        <span
-          v-for="option in options"
-          :key="option"
-          role="option"
-          :data-value="option"
-          :aria-selected="option === value"
-          class="custom-option"
-          @click.stop="onChange(option)"
-        >
-          {{ option }}
-        </span>
-      </div>
+    <div class="custom-select__trigger">
+      <span v-if="value">{{ value }}</span>
+      <span v-else class="placeholder">{{ placeholder }}</span>
+      <div class="arrow"></div>
+    </div>
+    <div class="custom-options" role="listbox" tabindex="-1">
+      <span
+        v-for="option in options"
+        :key="option"
+        role="option"
+        :data-value="option"
+        :aria-selected="option === value"
+        class="custom-option"
+        @click.stop="onChange(option, $event)"
+      >
+        {{ option }}
+      </span>
     </div>
   </div>
 </template>
 
 <style scoped>
-.custom-select-wrapper {
-  position: relative;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
 .custom-select {
   position: relative;
   display: inline-flex;
   min-width: 12em;
   flex-direction: column;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .custom-select__trigger {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0em 1.8em;
-  font-size: 1em;
+  padding: 15px 20px;
+  font-size: 1.1em;
   font-weight: 400;
-  font-family: var(--font-title);
+  font-family: var(--font-body);
   color: var(--text-white);
-  height: 60px;
   line-height: 1.25em;
   background: linear-gradient(141.48deg, #1a1a1a -4.56%, #151515 135.63%);
   box-shadow: inset -2px -2px 4px rgba(57, 57, 57, 0.44),
     inset 5px 5px 10px rgba(11, 11, 11, 0.5);
   border-radius: 10px;
   cursor: pointer;
+}
+.custom-select__trigger .placeholder {
+  color: var(--text-grey);
 }
 .custom-options {
   position: absolute;
@@ -82,8 +80,8 @@
 .custom-option {
   position: relative;
   display: block;
-  padding: 0.8em 1.8em;
-  font-size: 1em;
+  padding: 15px 20px;
+  font-size: 1.1em;
   font-weight: 400;
   font-family: var(--font-body);
   color: var(--text-grey);
@@ -148,9 +146,10 @@ export default {
       isOpen.value = !isOpen.value;
     }
 
-    function onChange(option) {
+    function onChange(option, ev) {
       value.value = option;
       emit("update:modelValue", option);
+      emit("change", ev);
       toggle();
     }
 
