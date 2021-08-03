@@ -22,6 +22,7 @@
     />
     <div class="body-2">{{ textValue }}</div>
     <Switch v-model="switchState" variant="large" />
+    <Progress :percentage="30" state="error" />
   </div>
 </template>
 
@@ -29,9 +30,10 @@
 import { ref } from "@vue/runtime-core";
 import TextField from "./components/TextField/TextField.vue";
 import Switch from "./components/Switch/Switch.vue";
+import Progress from "./components/Progress/Progress.vue";
 export default {
   name: "App",
-  components: { TextField, Switch },
+  components: { TextField, Switch, Progress },
   setup() {
     const textValue = ref("");
     const switchState = ref(false);
