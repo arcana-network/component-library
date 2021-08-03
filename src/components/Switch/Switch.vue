@@ -2,7 +2,7 @@
   <div>
     <span
       class="toggle-wrapper"
-      role="checkbox"
+      role="switch"
       :aria-checked="modelValue"
       tabindex="0"
       @click="toggle"

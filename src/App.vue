@@ -13,6 +13,10 @@
     <div><span class="body-1">Body 1</span></div>
     <div><span class="body-2">Body 2</span></div>
     <div><span class="body-3">Body 3</span></div>
+    <Dropdown
+      :options="['Tesla', 'Mercedes', 'BMW']"
+      placeholder="Select Car"
+    />
     <text-field
       v-model="textValue"
       @keyup="onKeyup"
@@ -31,9 +35,10 @@ import { ref } from "@vue/runtime-core";
 import TextField from "./components/TextField/TextField.vue";
 import Switch from "./components/Switch/Switch.vue";
 import Progress from "./components/Progress/Progress.vue";
+import Dropdown from "./components/Dropdown/Dropdown.vue";
 export default {
   name: "App",
-  components: { TextField, Switch, Progress },
+  components: { TextField, Switch, Progress, Dropdown },
   setup() {
     const textValue = ref("");
     const switchState = ref(false);
