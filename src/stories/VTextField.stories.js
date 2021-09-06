@@ -1,8 +1,8 @@
 import "../components/styles.css";
-import MyTextField from "../components/TextField/TextField.vue";
+import MyTextField from "../components/VTextField/VTextField.vue";
 
 export default {
-  title: "Components/TextField",
+  title: "Components/VTextField",
   component: MyTextField,
   argTypes: {
     messageType: {
@@ -11,7 +11,19 @@ export default {
     },
     type: {
       control: { type: "select" },
-      options: ["text", "password"],
+      options: [
+        "text",
+        "password",
+        "number",
+        "date",
+        "datetime-local",
+        "email",
+        "month",
+        "search",
+        "tel",
+        "time",
+        "week",
+      ],
     },
   },
 };
@@ -28,9 +40,16 @@ export const TextField = Template.bind({});
 TextField.args = {
   id: "simple-input",
   name: "simple-input",
+  label: "Name",
+  placeholder: "Enter valid name",
+  noMessage: true,
 };
 
 export const PasswordField = Template.bind({});
 PasswordField.args = {
-  type: "password",
+  name: "password",
+  label: "Password",
+  placeholder: "Enter Here",
+  message: "Incorrect password",
+  messageType: "error",
 };

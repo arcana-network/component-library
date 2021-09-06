@@ -1,13 +1,13 @@
 import "../components/styles.css";
-import Card from "../components/Card/Card.vue";
+import Card from "../components/VCard/VCard.vue";
 
 export default {
-  title: "Components/Card",
+  title: "Components/VCard",
   component: Card,
   argTypes: {
     variant: {
       control: { type: "select" },
-      options: ["elevated", "depressed"],
+      options: ["elevated", "depressed", "popup"],
     },
   },
 };
@@ -20,18 +20,9 @@ const Template = (args) => ({
   template: '<Card v-bind="args" />',
 });
 
-export const Elevated = Template.bind({});
-Elevated.args = {
+export const VCard = Template.bind({});
+VCard.args = {
   variant: "elevated",
-  cardStyle: {
-    height: "150px",
-    width: "30%",
-  },
-};
-
-export const Depressed = Template.bind({});
-Depressed.args = {
-  variant: "depressed",
   cardStyle: {
     height: "150px",
     width: "30%",

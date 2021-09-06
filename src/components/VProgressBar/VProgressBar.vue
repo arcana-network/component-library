@@ -19,7 +19,7 @@ progress::-webkit-progress-bar,
   -moz-appearance: none;
   appearance: none;
   height: 1em;
-  min-width: 27.5em;
+  min-width: 7.5em;
   background: linear-gradient(143.36deg, #000000 115.05%, #c6c6c6 -4.7%);
   box-shadow: inset -2px -2px 4px rgba(80, 80, 80, 0.1),
     inset 5px 5px 5px rgba(0, 0, 0, 0.21),
@@ -78,13 +78,14 @@ progress.error::-moz-progress-bar {
 <script>
 import { computed } from "@vue/runtime-core";
 export default {
+  name: "VProgressBar",
   props: {
     state: String,
     percentage: Number,
   },
   setup(props) {
     const value = computed(() => {
-      return !props.percentage || props.percentage < 4 ? 4 : props.percentage;
+      return !props.percentage || props.percentage < 2 ? 2 : props.percentage;
     });
 
     return {

@@ -1,6 +1,9 @@
 <template>
-  <div class="container column">
-    <h1>H1 HEADING</h1>
+  <Header logoAlt="Arc" :menuItems="headerItems" :loggedInUser="loggedInUser" />
+  <div class="container flex flex-start column">
+    <Tooltip title="Tooltip testing">
+      <h1>H1 HEADING w/ tooltip</h1>
+    </Tooltip>
     <h2>H2 HEADING</h2>
     <h3>H3 HEADING</h3>
     <h4>H4 HEADING</h4>
@@ -17,9 +20,6 @@
       :options="['Tesla', 'Mercedes', 'BMW']"
       placeholder="Select Car"
     />
-    <Tooltip title="Testing tooltip">
-      <span class="sub-heading-2">Sample Data</span>
-    </Tooltip>
     <text-field
       v-model="textValue"
       @keyup="onKeyup"
@@ -39,17 +39,43 @@
 <script>
 import { ref } from "@vue/runtime-core";
 import TextField from "./components/TextField/TextField.vue";
-import Switch from "./components/Switch/Switch.vue";
-import Progress from "./components/Progress/Progress.vue";
+import Switch from "./components/Switch/VSwitch.vue";
+import Progress from "./components/AppProgressBar/AppProgressBar.vue";
 import Dropdown from "./components/Dropdown/Dropdown.vue";
-import Tooltip from "./components/Tooltip/Tooltip.vue";
+import Tooltip from "./components/Tooltip/VTooltip.vue";
+import Header from "./components/Header/Header.vue";
 export default {
   name: "App",
-  components: { TextField, Switch, Progress, Dropdown, Tooltip },
+  components: { TextField, Switch, Progress, Dropdown, Tooltip, Header },
   setup() {
     const textValue = ref("");
     const switchState = ref(false);
-
+    const headerItems = [
+      {
+        label: "Dashboard",
+        internal: true,
+      },
+      {
+        label: "Users",
+        internal: true,
+      },
+      {
+        label: "Help",
+        internal: true,
+      },
+      {
+        label: "Docs",
+      },
+      {
+        label: "Docs",
+      },
+      {
+        label: "Docs",
+      },
+    ];
+    const loggedInUser = {
+      name: "John Doe",
+    };
     function onKeyup() {
       console.log("Keyup", textValue);
     }
@@ -58,6 +84,8 @@ export default {
       textValue,
       onKeyup,
       switchState,
+      headerItems,
+      loggedInUser,
     };
   },
 };

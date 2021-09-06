@@ -1,8 +1,8 @@
 import "../components/styles.css";
-import MyButton from "../components/Button/Button.vue";
+import MyButton from "../components/VButton/VButton.vue";
 
 export default {
-  title: "Components/Button",
+  title: "Components/VButton",
   component: MyButton,
   argTypes: {
     label: "Button",
@@ -23,18 +23,21 @@ const Template = (args) => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: "Button",
+  label: "Primary Button",
   variant: "primary",
+  action: () => window.alert("Button clicked"),
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: "Button",
-  variant: "secondary"
+  label: "Secondary Button",
+  variant: "secondary",
+  action: () => window.alert("Button clicked"),
 };
 
 export const Link = Template.bind({});
 Link.args = {
-  label: "Button",
-  variant: "link"
+  label: "Link Button",
+  variant: "link",
+  action: () => window.alert("Button clicked"),
 };
